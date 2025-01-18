@@ -1,0 +1,115 @@
+:root {
+    --yeti-bg-ok: #ebffec;
+    --yeti-ok: #31a335;
+    --yeti-bg-nok: #fdf2f1;
+    --yeti-nok: #f44336;
+    --yeti-bg-warn: #fff8ec;
+    --yeti-warn: #ed7a00;
+    --yeti-bg-info: #e6f4ff;
+    --yeti-info: #0083ee;
+    --yeti-close: #777;
+    --yeti-shadow: #00000025;
+    --yeti-radius: 5px;
+    --yeti-gap: 10px;
+    --yeti-font: 1em;
+}
+
+/* Container for all alerts */
+.yeti-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--yeti-gap);
+    width: calc(100% - 20px);
+    z-index: 9999;
+    font-size: var(--yeti-font);
+}
+
+/* Alert */
+.yeti {
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px;
+    border-radius: var(--yeti-radius);
+    gap: 25px;
+}
+
+/* Severity */
+.yeti-ok {
+    background-color: var(--yeti-bg-ok);
+    color: var(--yeti-ok);
+}
+.yeti-nok {
+    background-color: var(--yeti-bg-nok);
+    color: var(--yeti-nok);
+}
+.yeti-warn {
+    background-color: var(--yeti-bg-warn);
+    color: var(--yeti-warn);
+}
+.yeti-info {
+    background-color: var(--yeti-bg-info);
+    color: var(--yeti-info);
+}
+
+/* Alert styles */
+.yeti-shadow {
+    box-shadow: 0px 2px 8px var(--yeti-shadow);
+}
+.yeti-border-1 {
+    border: 1px solid currentColor;
+}
+.yeti-border-2 {
+    border-left: 8px solid currentColor;
+}
+.yeti-icon svg {
+    width: 35px;
+    height: 35px;
+}
+.yeti-text {
+    flex: 1;
+}
+.yeti-text p {
+    margin: 0;
+}
+.yeti-text p.yeti-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Close btn */
+.yeti-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+.yeti-close svg {
+    color: var(--yeti-close);
+    width: 30px;
+    height: 30px;
+}
+.yeti-close svg:hover {
+    filter: brightness(0);
+}
+
+/* Alert effects */
+.yeti.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.yeti.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
